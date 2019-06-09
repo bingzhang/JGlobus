@@ -1,4 +1,4 @@
-package org.globus.myproxy.test;
+package examples;
 
 import java.io.FileInputStream;
 import java.nio.file.Files;
@@ -10,14 +10,13 @@ import org.gridforum.jgss.ExtendedGSSCredential;
 import org.gridforum.jgss.ExtendedGSSManager;
 import org.ietf.jgss.GSSCredential;
 
-public class GridFtpTest {
+public class GridFtp {
 
   public static void main(String[] args) throws Exception {
-    //String proxyFile = "/Users/bing/chameleon/x509up_u20502";
-    String proxyFile = "/Users/bing/chameleon/x509up_u1000";
-    //String proxyFile = "/Users/bing/chameleon/x509up_test";
-    
-    //String x509up = "/Users/bing/chameleon/x509up_u1000";
+    String proxyFile = args[0];
+    String host = args[1];
+    String username = args[2];
+
     String proxyCertContent = new String(Files.readAllBytes(Paths.get(proxyFile)), "UTF-8");   
     byte[] proxyCertContentArray = proxyCertContent.getBytes();
     ExtendedGSSManager gssm = (ExtendedGSSManager) ExtendedGSSManager
@@ -43,13 +42,13 @@ public class GridFtpTest {
     System.out.println("cred2 is generated and remain lifetime: " + cred2.getRemainingLifetime());
     */
     //String host = "oasis-dm.sdsc.xsede.org";
-    String host = "129.114.108.18";
+
     int port = 2811;
     GridFTPClient client = new GridFTPClient(host, port);
-    String username = "cc";
-    //String username = ":globus-mapping:";
-    //client.authenticate(cred, username);
-    client.authenticate(cred);
+
+    //username = ":globus-mapping:";
+    client.authenticate(cred, username);
+    //client.authenticate(cred);
     client.setPassive();
     System.out.println("gridclient is authenticated!");
   }

@@ -17,6 +17,7 @@
 		<module>io</module>
 		<module>myproxy</module>
 		<module>axis</module>
+		<module>examples</module>
 	</modules>
 	<name>JGlobus</name>
 	<packaging>pom</packaging>

@@ -1,4 +1,4 @@
-package examples;
+package myproxy.examples;
 
 import java.io.FileInputStream;
 import java.nio.file.Files;

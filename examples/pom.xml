@@ -9,6 +9,72 @@
   <artifactId>examples</artifactId>
   <name>GSIFTP examples</name>
 
+  <build>
+    <plugins>
+      <!--
+        comments
+      -->      
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>2.4</version>
+        <configuration>
+          <archive>
+            <manifest>
+              <addClasspath>true</addClasspath>
+              <classpathPrefix>dependency-jars/</classpathPrefix>
+            </manifest>
+          </archive>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <version>2.5.1</version>
+        <executions>
+          <execution>
+            <id>copy-dependencies</id>
+            <phase>package</phase>
+            <goals>
+              <goal>copy-dependencies</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>
+                   ${project.build.directory}/dependency-jars/
+              </outputDirectory>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>com.googlecode.addjars-maven-plugin</groupId>
+        <artifactId>addjars-maven-plugin</artifactId>
+        <version>1.0.2</version>
+        <executions>
+          <execution>
+              <goals>
+                  <goal>add-jars</goal>
+              </goals>
+              <configuration>
+                  <resources>
+                      <resource>
+                          <directory>${basedir}/lib/</directory>
+                      </resource>
+                  </resources>
+              </configuration>
+          </execution>
+        </executions>
+      </plugin>      
+
+    </plugins>
+      <!--
+        <finalName>JGlobusExamples</finalName>
+      -->   
+  </build>
+
+
   <dependencies>
     <dependency>
       <groupId>commons-io</groupId>
@@ -21,12 +87,10 @@
     <dependency>
       <groupId>commons-logging</groupId>
       <artifactId>commons-logging</artifactId>
-      <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>log4j</groupId>
       <artifactId>log4j</artifactId>
-      <scope>compile</scope>
     </dependency>
 
     <dependency>
@@ -36,9 +100,20 @@
 
     <dependency>
       <groupId>${project.groupId}</groupId>
+      <artifactId>ssl-proxies</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>${project.groupId}</groupId>
       <artifactId>gridftp</artifactId>
       <version>${project.version}</version>
     </dependency>
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>gss</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+
 
   </dependencies>
 </project>

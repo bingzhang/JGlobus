@@ -16,7 +16,7 @@ public class GSIFTP {
     String proxyFile = args[0];
     String host = args[1];
     String username = args[2];
-    //String username = ":globus-mapping:";
+    //username = ":globus-mapping:";
     int port = 2811;
     
     String proxyCertContent = new String(Files.readAllBytes(Paths.get(proxyFile)), "UTF-8");   
@@ -37,8 +37,7 @@ public class GSIFTP {
 
     GridFTPClient client = new GridFTPClient(host, port);
     client.authenticate(cred, username);
-    //client.authenticate(cred);
-    //client.setPassive();
+    @SuppressWarnings("unchecked")
     Vector<org.globus.ftp.FileInfo> vector = client.list();
     System.out.println(vector);
     System.out.println("gridclient is authenticated!");

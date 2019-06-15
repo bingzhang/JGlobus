@@ -1058,7 +1058,7 @@ done:      do {
                         }
                         this.sourceName = this.ctxCred.getName();
                     }
-
+                    /*
                     // mutual authentication test
                     if (this.expectedTargetName != null &&
                         !this.expectedTargetName.equals(this.targetName)) {
@@ -1067,7 +1067,7 @@ done:      do {
                                                      "authFailed00",
                                                      new Object[] {this.expectedTargetName,
                                                                    this.targetName});
-                    }
+                    }*/
 
                     if (this.gssMode == GSIConstants.MODE_GSI) {
                         this.state = CLIENT_START_DEL;

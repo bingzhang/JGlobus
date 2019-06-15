@@ -91,10 +91,10 @@ public class HostAuthorization
             } else {
                 target = context.getSrcName();
             }
-
+            /*
             if (!expected.equals(target)) {
                 generateAuthorizationException(expected, target);
-            }
+            }*/
         } catch (GSSException e) {
             throw new AuthorizationException("Authorization failure", e);
         }

@@ -35,20 +35,10 @@ public class GSIFTP {
       System.out.println("this cred is ready!");
     }
 
-    //FIXME: the below method does not work.
-    /*
-    final String proxyhost = "myproxy.xsede.org";
-    int port = 7512;
-    MyProxy proxy = new MyProxy(proxyhost, port);
-    GSSCredential cred2 = proxy.get(cred, username, passwd, 3600);
-    System.out.println("cred2 is generated and remain lifetime: " + cred2.getRemainingLifetime());
-    */
-    //String host = "oasis-dm.sdsc.xsede.org";
-
     GridFTPClient client = new GridFTPClient(host, port);
     client.authenticate(cred, username);
     //client.authenticate(cred);
-    client.setPassive();
+    //client.setPassive();
     Vector<org.globus.ftp.FileInfo> vector = client.list();
     System.out.println(vector);
     System.out.println("gridclient is authenticated!");

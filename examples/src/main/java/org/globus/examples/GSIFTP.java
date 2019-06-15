@@ -3,6 +3,7 @@ package org.globus.examples;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Vector;
 
 import org.globus.ftp.GridFTPClient;
 import org.gridforum.jgss.ExtendedGSSCredential;
@@ -48,6 +49,8 @@ public class GSIFTP {
     client.authenticate(cred, username);
     //client.authenticate(cred);
     client.setPassive();
+    Vector<org.globus.ftp.FileInfo> vector = client.list();
+    System.out.println(vector);
     System.out.println("gridclient is authenticated!");
   }
 

@@ -107,43 +107,34 @@ public abstract class GSSConstants {
      */
     public static final Oid AUTHZ_REQUIRED_WITH_DELEGATION;
 
-    /** Context option. It is set to a Boolean value and if true,
-     * the GSI/GSSAPI layer will force the underlying SSL/TLS to
-     * use SSLv3 and a narrow set of cipher suites so communication
-     * with GRAM servers can succeed.
-     */
-    public static final Oid FORCE_SSLV3_AND_CONSTRAIN_CIPHERSUITES_FOR_GRAM;
-
     /** Quality-of-Protection (QOP) value, indicates large block size support.
      * Can be passed to <code>wrap</code> or set by <code>unwrap</code>
      * methods  */
     public static final int GSI_BIG = 1; // GSS_C_QOP_GLOBUS_GSSAPI_OPENSSL_BIG
 
     static {
-	try {
-	    // globus mech oid
-	    MECH_OID = new Oid("1.3.6.1.4.1.3536.1.1");
+    try {
+        // globus mech oid
+        MECH_OID = new Oid("1.3.6.1.4.1.3536.1.1");
 
-	    // options
-	    GSS_MODE = new Oid("1.3.6.1.4.1.3536.1.1.1");
-	    DELEGATION_TYPE = new Oid("1.3.6.1.4.1.3536.1.1.2");
-	    CHECK_CONTEXT_EXPIRATION = new Oid("1.3.6.1.4.1.3536.1.1.3");
-	    REJECT_LIMITED_PROXY = new Oid("1.3.6.1.4.1.3536.1.1.4");
-	    REQUIRE_CLIENT_AUTH = new Oid("1.3.6.1.4.1.3536.1.1.5");
-	    GRIM_POLICY_HANDLER = new Oid("1.3.6.1.4.1.3536.1.1.6");
-	    TRUSTED_CERTIFICATES = new Oid("1.3.6.1.4.1.3536.1.1.7");
-	    X509_CERT_CHAIN = new Oid("1.3.6.1.4.1.3536.1.1.8");
+        // options
+        GSS_MODE = new Oid("1.3.6.1.4.1.3536.1.1.1");
+        DELEGATION_TYPE = new Oid("1.3.6.1.4.1.3536.1.1.2");
+        CHECK_CONTEXT_EXPIRATION = new Oid("1.3.6.1.4.1.3536.1.1.3");
+        REJECT_LIMITED_PROXY = new Oid("1.3.6.1.4.1.3536.1.1.4");
+        REQUIRE_CLIENT_AUTH = new Oid("1.3.6.1.4.1.3536.1.1.5");
+        GRIM_POLICY_HANDLER = new Oid("1.3.6.1.4.1.3536.1.1.6");
+        TRUSTED_CERTIFICATES = new Oid("1.3.6.1.4.1.3536.1.1.7");
+        X509_CERT_CHAIN = new Oid("1.3.6.1.4.1.3536.1.1.8");
 
-	    ACCEPT_NO_CLIENT_CERTS = new Oid("1.3.6.1.4.1.3536.1.1.19");
-	    PROXY_POLICY_HANDLERS = new Oid("1.3.6.1.4.1.3536.1.1.20");
-	    RECEIVED_LIMITED_PROXY = new Oid("1.3.6.1.4.1.3536.1.1.21");
-	    AUTHZ_REQUIRED_WITH_DELEGATION =
+        ACCEPT_NO_CLIENT_CERTS = new Oid("1.3.6.1.4.1.3536.1.1.19");
+        PROXY_POLICY_HANDLERS = new Oid("1.3.6.1.4.1.3536.1.1.20");
+        RECEIVED_LIMITED_PROXY = new Oid("1.3.6.1.4.1.3536.1.1.21");
+        AUTHZ_REQUIRED_WITH_DELEGATION =
                 new Oid("1.3.6.1.4.1.3536.1.1.22");
-	    FORCE_SSLV3_AND_CONSTRAIN_CIPHERSUITES_FOR_GRAM =
-                new Oid("1.3.6.1.4.1.3536.1.1.23");
-	} catch (Exception e) {
-	    throw new RuntimeException(e.getMessage());
-	}
+    } catch (Exception e) {
+        throw new RuntimeException(e.getMessage());
+    }
     }
 
 }

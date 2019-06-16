@@ -38,7 +38,7 @@ public class GSIFTP {
     GridFTPClient client = new GridFTPClient(host, port);
     client.authenticate(cred, username);
     @SuppressWarnings("unchecked")
-    Vector<org.globus.ftp.FileInfo> vector = client.list();
+    Vector<org.globus.ftp.FileInfo> vector = client.list("/home/cc/files");
     System.out.println(vector);
     System.out.println("gridclient is authenticated!");
   }

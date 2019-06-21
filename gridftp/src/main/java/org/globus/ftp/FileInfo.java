@@ -189,7 +189,13 @@ public class FileInfo {
             }
         }
     }
-
+    
+    // I added this function to set mode into FileInfo.
+    // note the mode is decimal
+    public void setMode(int mode) {
+      this.mode = mode;
+    }
+    
     // --------------------------------
 
     /**

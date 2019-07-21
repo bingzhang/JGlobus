@@ -33,14 +33,13 @@ public class GSIFTP {
       System.out.println("this cred is expired!");
     } else {
       System.out.println("this cred is ready!");
+      GridFTPClient client = new GridFTPClient(host, port);
+      client.authenticate(cred, username);
+      @SuppressWarnings("unchecked")
+      Vector<org.globus.ftp.FileInfo> vector = client.list();
+      System.out.println(vector);
+      System.out.println("gridclient is authenticated!");
     }
-
-    GridFTPClient client = new GridFTPClient(host, port);
-    client.authenticate(cred, username);
-    @SuppressWarnings("unchecked")
-    Vector<org.globus.ftp.FileInfo> vector = client.list();
-    System.out.println(vector);
-    System.out.println("gridclient is authenticated!");
   }
 
 }
